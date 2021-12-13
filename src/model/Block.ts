@@ -1,13 +1,13 @@
 export type Block = {
-  height: number;
   id: string;
-  mediantime: number;
-  merkle_root: string;
-  previousblockhash: string | null;
-  size: number;
+  height: number;
+  version: number;
   timestamp: number;
   tx_count: number;
-  version: number;
+  size: number;
   weight: number;
+  merkle_root: string;
+  previousblockhash: string | null;
+  mediantime: number;
   ext: any;
 };
