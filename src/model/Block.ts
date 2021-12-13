@@ -7,15 +7,7 @@ export type Block = {
   size: number;
   weight: number;
   merkle_root: string;
-  previousblockhash: string;
+  previousblockhash: string | null;
   mediantime: number;
-  ext: {
-    current: {
-      elided_root: string;
-      signblock_witness_limit: number;
-      signblockscript: string;
-    };
-    proposed: any;
-    signblock_witness: number[];
-  };
+  ext: any;
 };
