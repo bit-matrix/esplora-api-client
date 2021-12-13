@@ -1,3 +1,4 @@
+import { Status } from "./Status";
 import { VIn } from "./VIn";
 import { VOut } from "./VOut";
 
@@ -10,10 +11,5 @@ export type TxDetail = {
   fee: number;
   vin: VIn[];
   vout: VOut[];
-  status: {
-    confirmed: boolean;
-    block_height: number;
-    block_hash: string;
-    block_time: number;
-  };
+  status: Status;
 };
