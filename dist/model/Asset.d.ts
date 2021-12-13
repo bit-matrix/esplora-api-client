@@ -1,0 +1,43 @@
+import { Status } from "./Status";
+declare type NativeAssetStats = {
+    tx_count: number;
+    peg_in_count: number;
+    peg_in_amount: number;
+    peg_out_amount: number;
+    peg_out_count: number;
+    burn_count: number;
+    burned_amount: number;
+};
+declare type UserIssuedAssetStats = {
+    tx_count: number;
+    issuance_count: number;
+    issued_amount: number;
+    burned_amount: number;
+    has_blinded_issuances: boolean;
+    reissuance_tokens: number | null;
+    burned_reissuance_tokens: number;
+};
+export declare type Asset = {
+    asset_id: string;
+    chain_stats: NativeAssetStats & UserIssuedAssetStats;
+    mempool_stats: NativeAssetStats & UserIssuedAssetStats;
+    issuance_txin: {
+        txid: string;
+        vin: number;
+    };
+    issuance_prevout: {
+        txid: string;
+        vin: number;
+    };
+    status: Status;
+    contract_hash?: string;
+    reissuance_token: string;
+    contract: string;
+    entity: {
+        domain: string;
+    };
+    ticker?: string;
+    precision?: number;
+    name: string;
+};
+export {};
