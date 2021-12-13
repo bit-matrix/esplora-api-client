@@ -1,13 +1,21 @@
 export type Block = {
-  height: number;
   id: string;
-  mediantime: number;
-  merkle_root: string;
-  previousblockhash: string | null;
-  size: number;
+  height: number;
+  version: number;
   timestamp: number;
   tx_count: number;
-  version: number;
+  size: number;
   weight: number;
-  ext: any;
+  merkle_root: string;
+  previousblockhash: string;
+  mediantime: number;
+  ext: {
+    current: {
+      elided_root: string;
+      signblock_witness_limit: number;
+      signblockscript: string;
+    };
+    proposed: any;
+    signblock_witness: number[];
+  };
 };
