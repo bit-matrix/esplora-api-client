@@ -1,0 +1,10 @@
+{
+  "name": "@bitmatrix/esplora-api-client",
+  "version": "0.0.1",
+  "description": "esplora-api-client",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
