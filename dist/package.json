@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "npm-pubish": "npm version patch && npm publish --access public"
+    "npm-pubish": "npm publish --access public"
   },
   "repository": {
     "type": "git",
@@ -16,9 +16,6 @@
   },
   "homepage": "https://https://github.com/bit-matrix/esplora-api-client#readme",
   "dependencies": {
-    "axios": "^0.24.0",
-    "ts-loader": "^9.2.6",
-    "webpack": "^5.65.0",
-    "webpack-cli": "^4.9.1"
+    "axios": "^0.24.0"
   }
 }
