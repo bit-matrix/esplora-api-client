@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "npm-pubish": "npm publish --access public"
+    "npm-publish": "npm publish --access public"
   },
   "repository": {
     "type": "git",
