@@ -36,5 +36,5 @@ test("Get Block Transactions", async () => {
 test("Get Block Tip Height", async () => {
   const blockTipHeight: BlockTipHeight = await esploraClient.blockTipHeight();
 
-  expect(blockTipHeight).toEqual(1614754);
+  expect(blockTipHeight).toBeGreaterThan(1614934);
 });
