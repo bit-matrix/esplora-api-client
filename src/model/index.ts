@@ -5,3 +5,6 @@ export * from "./Tx";
 export * from "./Block";
 export * from "./BlockStatus";
 export * from "./BlockTipHeight";
+export * from "./TxOutSpend";
+export * from "./Mempool";
+export * from "./Asset";
