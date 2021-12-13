@@ -1,13 +1,20 @@
-import { Asset, esploraClient, init, TxDetail } from "../src/index";
+import { Asset, esploraClient, init, TxDetail, NativeAssetStats, UserIssuedAssetStats } from "../src/index";
 
 init("https://blockstream.info/liquid/api/");
 
 test("Get Asset", async () => {
   const asset: Asset = await esploraClient.asset("6f0279e9ed041c3d710a9f57d0c02928416460c4b722ae3457a11eec381c526d");
 
+  const typeOfNativeAssetStats = (chain_stats: NativeAssetStats | UserIssuedAssetStats): chain_stats is NativeAssetStats => {
+    return (chain_stats as NativeAssetStats).peg_in_amount !== undefined;
+  };
+
   expect(asset.asset_id).toEqual("6f0279e9ed041c3d710a9f57d0c02928416460c4b722ae3457a11eec381c526d");
   expect(asset.chain_stats.tx_count).toEqual(4999);
-  expect(asset.chain_stats.peg_in_amount).toEqual(352979554226);
+
+  if (typeOfNativeAssetStats(asset.chain_stats)) {
+    expect(asset.chain_stats.peg_in_amount).toEqual(352979554226);
+  }
 });
 
 test("Get Asset Transactions", async () => {
