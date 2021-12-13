@@ -1,4 +1,4 @@
-import { esploraClient, init, Tx, TxDetail } from "../src/index";
+import { esploraClient, init, Tx, TxDetail, TxOutSpend } from "../src/index";
 
 init("https://blockstream.info/liquid/api/");
 
@@ -16,4 +16,10 @@ test("Get Transaction", async () => {
   expect(tx.weight).toEqual(1111);
   expect(tx.vin[0].scriptsig).toEqual("0325a3180101");
   expect(tx.vout[0].asset).toEqual("6f0279e9ed041c3d710a9f57d0c02928416460c4b722ae3457a11eec381c526d");
+});
+
+test("Get Transaction Outspends", async () => {
+  const txOutSpends: TxOutSpend[] = await esploraClient.txOutspends("2f6a3e8b222bf562d95415bc9e9a2fe59dfb71898494d7077281c69c6a26e731");
+
+  expect(txOutSpends[0].spent).toEqual(false);
 });
