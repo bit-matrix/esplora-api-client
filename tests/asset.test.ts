@@ -1,4 +1,4 @@
-import { Asset, esploraClient, init, TxDetail, NativeAssetStats, UserIssuedAssetStats } from "../src/index";
+import { Asset, NativeAsset, UserIssuedAsset, esploraClient, init, TxDetail, NativeAssetStats, UserIssuedAssetStats } from "../src/index";
 import { baseUrl } from "./const";
 
 init(baseUrl);
@@ -6,14 +6,14 @@ init(baseUrl);
 test("Get Asset", async () => {
   const asset: Asset = await esploraClient.asset("144c654344aa716d6f3abcc1ca90e5641e4e2a7f633bc09fe3baf64585819a49");
 
-  const typeOfNativeAssetStats = (chain_stats: NativeAssetStats | UserIssuedAssetStats): chain_stats is NativeAssetStats => {
-    return (chain_stats as NativeAssetStats).peg_in_amount !== undefined;
+  const typeOfNativeAsset = (asset: NativeAsset | UserIssuedAsset): asset is NativeAsset => {
+    return (asset as NativeAsset).chain_stats.peg_in_amount !== undefined;
   };
 
   expect(asset.asset_id).toEqual("144c654344aa716d6f3abcc1ca90e5641e4e2a7f633bc09fe3baf64585819a49");
   expect(asset.chain_stats.tx_count).toEqual(1);
 
-  if (typeOfNativeAssetStats(asset.chain_stats)) {
+  if (typeOfNativeAsset(asset)) {
     expect(asset.chain_stats.peg_in_amount).toEqual(352979554226);
   }
 });
