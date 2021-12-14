@@ -1,6 +1,6 @@
 {
   "name": "@bitmatrix/esplora-api-client",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "esplora-api-client",
   "main": "index.js",
   "license": "MIT",
