@@ -1,5 +1,5 @@
 import { Status } from "./Status";
-declare type NativeAssetStats = {
+export declare type NativeAssetStats = {
     tx_count: number;
     peg_in_count: number;
     peg_in_amount: number;
@@ -8,7 +8,7 @@ declare type NativeAssetStats = {
     burn_count: number;
     burned_amount: number;
 };
-declare type UserIssuedAssetStats = {
+export declare type UserIssuedAssetStats = {
     tx_count: number;
     issuance_count: number;
     issued_amount: number;
@@ -19,8 +19,8 @@ declare type UserIssuedAssetStats = {
 };
 export declare type Asset = {
     asset_id: string;
-    chain_stats: NativeAssetStats & UserIssuedAssetStats;
-    mempool_stats: NativeAssetStats & UserIssuedAssetStats;
+    chain_stats: NativeAssetStats | UserIssuedAssetStats;
+    mempool_stats: NativeAssetStats | UserIssuedAssetStats;
     issuance_txin: {
         txid: string;
         vin: number;
@@ -40,4 +40,3 @@ export declare type Asset = {
     precision?: number;
     name: string;
 };
-export {};
