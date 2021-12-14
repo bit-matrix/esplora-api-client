@@ -20,10 +20,16 @@ export type UserIssuedAssetStats = {
   burned_reissuance_tokens: number;
 };
 
-export type Asset = {
+export type NativeAsset = {
   asset_id: string;
-  chain_stats: NativeAssetStats | UserIssuedAssetStats;
-  mempool_stats: NativeAssetStats | UserIssuedAssetStats;
+  chain_stats: NativeAssetStats;
+  mempool_stats: NativeAssetStats;
+};
+
+export type UserIssuedAsset = {
+  asset_id: string;
+  chain_stats: UserIssuedAssetStats;
+  mempool_stats: UserIssuedAssetStats;
   issuance_txin: {
     txid: string;
     vin: number;
@@ -41,3 +47,5 @@ export type Asset = {
   precision?: number;
   name: string;
 };
+
+export type Asset = NativeAsset | UserIssuedAsset;
