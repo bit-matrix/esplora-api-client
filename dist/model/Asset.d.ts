@@ -17,10 +17,15 @@ export declare type UserIssuedAssetStats = {
     reissuance_tokens: number | null;
     burned_reissuance_tokens: number;
 };
-export declare type Asset = {
+export declare type NativeAsset = {
     asset_id: string;
-    chain_stats: NativeAssetStats | UserIssuedAssetStats;
-    mempool_stats: NativeAssetStats | UserIssuedAssetStats;
+    chain_stats: NativeAssetStats;
+    mempool_stats: NativeAssetStats;
+};
+export declare type UserIssuedAsset = {
+    asset_id: string;
+    chain_stats: UserIssuedAssetStats;
+    mempool_stats: UserIssuedAssetStats;
     issuance_txin: {
         txid: string;
         vin: number;
@@ -40,3 +45,4 @@ export declare type Asset = {
     precision?: number;
     name: string;
 };
+export declare type Asset = NativeAsset | UserIssuedAsset;
