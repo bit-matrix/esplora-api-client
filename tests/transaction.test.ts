@@ -1,6 +1,7 @@
 import { esploraClient, init, Tx, TxDetail, TxOutSpend } from "../src/index";
+import { baseUrl } from "./const";
 
-init("https://blockstream.info/liquid/api/");
+init(baseUrl);
 
 test("Get Latest Transactions", async () => {
   const txs: Tx[] = await esploraClient.txs();
@@ -9,17 +10,18 @@ test("Get Latest Transactions", async () => {
 });
 
 test("Get Transaction", async () => {
-  const tx: TxDetail = await esploraClient.tx("2f6a3e8b222bf562d95415bc9e9a2fe59dfb71898494d7077281c69c6a26e731");
+  const tx: TxDetail = await esploraClient.tx("f955851e1af3e97a5a2314417fd75c858a45d95941462b7b8e90a1095d28ed60");
 
-  expect(tx.txid).toEqual("2f6a3e8b222bf562d95415bc9e9a2fe59dfb71898494d7077281c69c6a26e731");
-  expect(tx.size).toEqual(310);
-  expect(tx.weight).toEqual(1111);
-  expect(tx.vin[0].scriptsig).toEqual("0325a3180101");
-  expect(tx.vout[0].asset).toEqual("6f0279e9ed041c3d710a9f57d0c02928416460c4b722ae3457a11eec381c526d");
+  expect(tx.txid).toEqual("f955851e1af3e97a5a2314417fd75c858a45d95941462b7b8e90a1095d28ed60");
+  expect(tx.size).toEqual(4649);
+  expect(tx.weight).toEqual(5519);
+  expect(tx.vin[0].witness[1]).toEqual("026d2c456592b4ee3167b2e4bdc9cd943caedc466bc1d1e5e538dbecea03d20c64");
+  expect(tx.vout[1].scriptpubkey).toEqual("0014888fa152d7e815954b0cfc04df16e1e258ef47a7");
 });
 
 test("Get Transaction Outspends", async () => {
-  const txOutSpends: TxOutSpend[] = await esploraClient.txOutspends("2f6a3e8b222bf562d95415bc9e9a2fe59dfb71898494d7077281c69c6a26e731");
+  const txOutSpends: TxOutSpend[] = await esploraClient.txOutspends("f955851e1af3e97a5a2314417fd75c858a45d95941462b7b8e90a1095d28ed60");
 
+  // for now
   expect(txOutSpends[0].spent).toEqual(false);
 });

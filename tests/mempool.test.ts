@@ -1,6 +1,7 @@
 import { esploraClient, init, Mempool } from "../src/index";
+import { baseUrl } from "./const";
 
-init("https://blockstream.info/liquid/api/");
+init(baseUrl);
 
 test("Get Mempool", async () => {
   const mempool: Mempool = await esploraClient.mempool();
