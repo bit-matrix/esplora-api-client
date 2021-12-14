@@ -1,6 +1,6 @@
 import { Status } from "./Status";
 
-type NativeAssetStats = {
+export type NativeAssetStats = {
   tx_count: number;
   peg_in_count: number;
   peg_in_amount: number;
@@ -10,7 +10,7 @@ type NativeAssetStats = {
   burned_amount: number;
 };
 
-type UserIssuedAssetStats = {
+export type UserIssuedAssetStats = {
   tx_count: number;
   issuance_count: number;
   issued_amount: number;
@@ -22,8 +22,8 @@ type UserIssuedAssetStats = {
 
 export type Asset = {
   asset_id: string;
-  chain_stats: NativeAssetStats & UserIssuedAssetStats;
-  mempool_stats: NativeAssetStats & UserIssuedAssetStats;
+  chain_stats: NativeAssetStats | UserIssuedAssetStats;
+  mempool_stats: NativeAssetStats | UserIssuedAssetStats;
   issuance_txin: {
     txid: string;
     vin: number;
