@@ -11,6 +11,8 @@ export class EsploraClient {
 
   blocks = async (): Promise<Block[]> => this.axios.get<Block[]>("blocks").then<Block[]>((response) => response.data);
 
+  blockheight = async (blockHeight: number): Promise<string> => this.axios.get<string>(`block-height/${blockHeight}`).then<string>((response) => response.data);
+
   block = async (blockHash: string): Promise<Block> => this.axios.get<Block>(`block/${blockHash}`).then<Block>((response) => response.data);
 
   blockStatus = async (blockHash: string): Promise<BlockStatus> => this.axios.get<BlockStatus>(`block/${blockHash}/status`).then<BlockStatus>((response) => response.data);
