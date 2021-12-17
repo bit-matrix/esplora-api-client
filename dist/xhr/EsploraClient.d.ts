@@ -3,6 +3,7 @@ export declare class EsploraClient {
     private axios;
     constructor(esploraApiUrl: string);
     blocks: () => Promise<Block[]>;
+    blockheight: (blockHeight: number) => Promise<string>;
     block: (blockHash: string) => Promise<Block>;
     blockStatus: (blockHash: string) => Promise<BlockStatus>;
     blockTxs: (blockHash: string) => Promise<TxDetail[]>;

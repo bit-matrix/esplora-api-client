@@ -17,6 +17,7 @@ const axios_1 = __importDefault(require("axios"));
 class EsploraClient {
     constructor(esploraApiUrl) {
         this.blocks = () => __awaiter(this, void 0, void 0, function* () { return this.axios.get("blocks").then((response) => response.data); });
+        this.blockheight = (blockHeight) => __awaiter(this, void 0, void 0, function* () { return this.axios.get(`block-height/${blockHeight}`).then((response) => response.data); });
         this.block = (blockHash) => __awaiter(this, void 0, void 0, function* () { return this.axios.get(`block/${blockHash}`).then((response) => response.data); });
         this.blockStatus = (blockHash) => __awaiter(this, void 0, void 0, function* () { return this.axios.get(`block/${blockHash}/status`).then((response) => response.data); });
         this.blockTxs = (blockHash) => __awaiter(this, void 0, void 0, function* () { return this.axios.get(`block/${blockHash}/txs/0`).then((response) => response.data); });
