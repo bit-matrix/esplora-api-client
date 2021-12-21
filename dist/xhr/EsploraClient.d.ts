@@ -2,7 +2,7 @@ import { Block, TxDetail, Tx, BlockStatus, BlockTipHeight, TxOutSpend, Mempool, 
 export declare class EsploraClient {
     private axios;
     constructor(esploraApiUrl: string);
-    blocks: () => Promise<Block[]>;
+    blocks: (startHeight?: number | undefined) => Promise<Block[]>;
     blockheight: (blockHeight: number) => Promise<string>;
     block: (blockHash: string) => Promise<Block>;
     blockStatus: (blockHash: string) => Promise<BlockStatus>;
