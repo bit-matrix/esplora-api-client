@@ -25,6 +25,8 @@ export class EsploraClient {
 
   tx = async (txid: string): Promise<TxDetail> => this.axios.get<TxDetail>(`tx/${txid}`).then<TxDetail>((response) => response.data);
 
+  txHex = async (txid: string): Promise<string> => this.axios.get<string>(`tx/${txid}/hex`).then<string>((response) => response.data);
+
   txOutspends = async (txid: string): Promise<TxOutSpend[]> => this.axios.get<TxOutSpend[]>(`tx/${txid}/outspends`).then<TxOutSpend[]>((response) => response.data);
 
   asset = async (assetId: string): Promise<Asset> => this.axios.get<Asset>(`asset/${assetId}`).then<Asset>((response) => response.data);
