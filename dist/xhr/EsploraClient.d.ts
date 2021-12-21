@@ -10,6 +10,7 @@ export declare class EsploraClient {
     blockTipHeight: () => Promise<BlockTipHeight>;
     txs: () => Promise<Tx[]>;
     tx: (txid: string) => Promise<TxDetail>;
+    txHex: (txid: string) => Promise<string>;
     txOutspends: (txid: string) => Promise<TxOutSpend[]>;
     asset: (assetId: string) => Promise<Asset>;
     assetTx: (assetId: string) => Promise<TxDetail[]>;

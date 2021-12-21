@@ -24,6 +24,7 @@ class EsploraClient {
         this.blockTipHeight = () => __awaiter(this, void 0, void 0, function* () { return this.axios.get("blocks/tip/height").then((response) => response.data); });
         this.txs = () => __awaiter(this, void 0, void 0, function* () { return this.axios.get("mempool/recent").then((response) => response.data); });
         this.tx = (txid) => __awaiter(this, void 0, void 0, function* () { return this.axios.get(`tx/${txid}`).then((response) => response.data); });
+        this.txHex = (txid) => __awaiter(this, void 0, void 0, function* () { return this.axios.get(`tx/${txid}/hex`).then((response) => response.data); });
         this.txOutspends = (txid) => __awaiter(this, void 0, void 0, function* () { return this.axios.get(`tx/${txid}/outspends`).then((response) => response.data); });
         this.asset = (assetId) => __awaiter(this, void 0, void 0, function* () { return this.axios.get(`asset/${assetId}`).then((response) => response.data); });
         this.assetTx = (assetId) => __awaiter(this, void 0, void 0, function* () { return this.axios.get(`asset/${assetId}/txs`).then((response) => response.data); });
