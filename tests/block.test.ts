@@ -9,6 +9,14 @@ test("Get Latest Blocks", async () => {
   expect(blocks.length).toEqual(10);
 });
 
+test("Get Latest Blocks 2", async () => {
+  const blocks: Block[] = await esploraClient.blocks(100);
+
+  expect(blocks.length).toEqual(10);
+  expect(blocks[0].height).toEqual(100);
+  expect(blocks[9].height).toEqual(91);
+});
+
 test("Get Block", async () => {
   const block: Block = await esploraClient.block("7fd267d9c9615ab0968fb2c958ddcf980e68d82382116f6b22e9f318f9e86d7d");
 

@@ -9,7 +9,7 @@ export class EsploraClient {
     this.axios.defaults.baseURL = esploraApiUrl;
   }
 
-  blocks = async (): Promise<Block[]> => this.axios.get<Block[]>("blocks").then<Block[]>((response) => response.data);
+  blocks = async (startHeight?: number): Promise<Block[]> => this.axios.get<Block[]>("blocks/" + (startHeight || "")).then<Block[]>((response) => response.data);
 
   blockheight = async (blockHeight: number): Promise<string> => this.axios.get<string>(`block-height/${blockHeight}`).then<string>((response) => response.data);
 
