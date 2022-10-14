@@ -30,6 +30,7 @@ class EsploraClient {
         this.assetTx = (assetId) => __awaiter(this, void 0, void 0, function* () { return this.axios.get(`asset/${assetId}/txs`).then((response) => response.data); });
         this.mempool = () => __awaiter(this, void 0, void 0, function* () { return this.axios.get("mempool").then((response) => response.data); });
         this.feeEstimates = () => __awaiter(this, void 0, void 0, function* () { return this.axios.get("fee-estimates").then((response) => response.data); });
+        this.addressTxs = (address) => __awaiter(this, void 0, void 0, function* () { return this.axios.get(`address/${address}/txs`).then((response) => response.data); });
         this.axios = axios_1.default.create();
         this.axios.defaults.baseURL = esploraApiUrl;
     }

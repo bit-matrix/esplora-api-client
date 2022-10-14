@@ -2,7 +2,7 @@ import { Block, TxDetail, Tx, BlockStatus, BlockTipHeight, TxOutSpend, Mempool, 
 export declare class EsploraClient {
     private axios;
     constructor(esploraApiUrl: string);
-    blocks: (startHeight?: number | undefined) => Promise<Block[]>;
+    blocks: (startHeight?: number) => Promise<Block[]>;
     blockheight: (blockHeight: number) => Promise<string>;
     block: (blockHash: string) => Promise<Block>;
     blockStatus: (blockHash: string) => Promise<BlockStatus>;
@@ -16,4 +16,5 @@ export declare class EsploraClient {
     assetTx: (assetId: string) => Promise<TxDetail[]>;
     mempool: () => Promise<Mempool>;
     feeEstimates: () => Promise<any>;
+    addressTxs: (address: string) => Promise<TxDetail[]>;
 }
