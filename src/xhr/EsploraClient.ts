@@ -36,4 +36,6 @@ export class EsploraClient {
   mempool = async (): Promise<Mempool> => this.axios.get<Mempool>("mempool").then<Mempool>((response) => response.data);
 
   feeEstimates = async (): Promise<any> => this.axios.get<any>("fee-estimates").then<any>((response) => response.data);
+
+  addressTxs = async (address: string): Promise<TxDetail[]> => this.axios.get<TxDetail[]>(`address/${address}/txs`).then<TxDetail[]>((response) => response.data);
 }
